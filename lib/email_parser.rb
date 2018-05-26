@@ -19,14 +19,9 @@ class EmailParser
   # end
 
   def parse
-    # emails = "john@doe.com, person@somewhere.org"
-    # all = []
-    values = emails.split(/[\s,]/)
-    values.each do |e|
-      all << if e.email?
-      end
-    end
-    all
+    emails_only = @emails.split(/[, ]).uniq
+    emails_only.reject! {|e| e.empty?}
+    emails_only
   end
 
 end
